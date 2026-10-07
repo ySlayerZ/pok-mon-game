@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Pokémon World</title>
 
     <link rel="stylesheet" href="style.css">
@@ -10,152 +11,227 @@
 
 <body>
 
-    <header>
-        <div class="logo">Pokémon World</div>
+<header>
+    <div class="logo">
+        <span>Pokémon</span> World
+    </div>
 
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#quiz">Quiz</a>
-            <a href="#pokedex">Pokédex</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#pokedex">Pokédex</a>
+    </nav>
+</header>
 
-    <main>
+<main>
 
-        <!-- INÍCIO -->
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>Bem-vindo ao<br><span>Pokémon World!</span></h1>
+    <!-- INÍCIO -->
+    <section id="inicio" class="hero">
 
-                <p>
-                    Explore a primeira geração de Pokémon,
-                    teste seus conhecimentos e descubra seus favoritos.
-                </p>
+        <div class="hero-content">
+            <h1>Bem-vindo ao Pokémon World!</h1>
 
-                <div class="buttons">
-                    <a href="#quiz" class="button primary">
-                        Jogar Quiz
-                    </a>
-
-                    <a href="#pokedex" class="button secondary">
-                        Abrir Pokédex
-                    </a>
-                </div>
-            </div>
-
-            <div class="pokeball">
-                <div class="pokeball-center"></div>
-            </div>
-        </section>
-
-
-        <!-- QUIZ -->
-        <section id="quiz" class="section">
-
-            <h2>Quiz Pokémon</h2>
-
-            <p class="section-description">
-                Teste seus conhecimentos sobre Pokémon!
+            <p>
+                Teste seus conhecimentos no quiz e explore a Pokédex
+                com os Pokémon das Gerações 1 até 9.
             </p>
 
-            <div class="quiz-container">
+            <div class="hero-buttons">
+                <a href="#quiz" class="main-button">
+                    Jogar Quiz
+                </a>
 
-                <div id="quiz-start">
-                    <h3>Você conhece bem Pokémon?</h3>
+                <a href="#pokedex" class="secondary-button">
+                    Abrir Pokédex
+                </a>
+            </div>
+        </div>
 
-                    <p>
-                        Responda às perguntas e descubra sua pontuação.
-                    </p>
+        <div class="pokeball-decoration">
+            <div class="pokeball-line"></div>
+            <div class="pokeball-center"></div>
+        </div>
 
-                    <button id="start-button" class="button primary">
-                        Começar Quiz
-                    </button>
-                </div>
-
-
-                <div id="quiz-game" class="hidden">
-
-                    <div class="quiz-top">
-                        <span id="question-number">
-                            Pergunta 1/5
-                        </span>
-
-                        <span id="score">
-                            Pontos: 0
-                        </span>
-                    </div>
-
-                    <h3 id="question">
-                        Pergunta
-                    </h3>
-
-                    <div id="answers"></div>
-
-                    <button id="next-button" class="button primary hidden">
-                        Próxima
-                    </button>
-
-                </div>
+    </section>
 
 
-                <div id="quiz-result" class="hidden">
+    <!-- QUIZ -->
+    <section id="quiz" class="section">
 
-                    <h3>Quiz finalizado!</h3>
+        <div class="section-title">
+            <h2>Quiz Pokémon</h2>
 
-                    <p id="final-score">
-                        Você fez 0 pontos.
-                    </p>
+            <p>
+                Você realmente conhece o mundo Pokémon?
+            </p>
+        </div>
 
-                    <button id="restart-button" class="button primary">
-                        Jogar novamente
-                    </button>
+        <!-- Tela inicial -->
+        <div id="quiz-start" class="quiz-card">
 
-                </div>
+            <h3>Teste seus conhecimentos!</h3>
+
+            <p>
+                São 60 perguntas sobre Pokémon.
+                As perguntas e alternativas são embaralhadas a cada partida.
+            </p>
+
+            <button id="start-button" class="quiz-button">
+                Começar Quiz
+            </button>
+
+        </div>
+
+
+        <!-- Jogo -->
+        <div id="quiz-game" class="quiz-card hidden">
+
+            <div class="quiz-top">
+
+                <span id="question-number">
+                    Pergunta 1 de 60
+                </span>
+
+                <span id="score">
+                    Pontos: 0
+                </span>
 
             </div>
 
-        </section>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+
+            <h3 id="question">
+                Pergunta
+            </h3>
+
+            <div id="answers" class="answers"></div>
+
+            <button id="next-button" class="quiz-button hidden">
+                Próxima
+            </button>
+
+        </div>
 
 
-        <!-- POKEDEX -->
-        <section id="pokedex" class="section pokedex-section">
+        <!-- Resultado -->
+        <div id="quiz-result" class="quiz-card hidden">
+
+            <h3>Quiz finalizado!</h3>
+
+            <p id="final-score"></p>
+
+            <p id="final-message"></p>
+
+            <button id="restart-button" class="quiz-button">
+                Jogar Novamente
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- POKEDEX -->
+    <section id="pokedex" class="section pokedex-section">
+
+        <div class="section-title">
 
             <h2>Pokédex</h2>
 
-            <p class="section-description">
-                Explore os 151 Pokémon da primeira geração.
+            <p>
+                Explore os Pokémon das Gerações 1 até 9.
             </p>
 
-            <div class="search-container">
-
-                <input
-                    type="text"
-                    id="pokemon-search"
-                    placeholder="Pesquisar Pokémon..."
-                >
-
-            </div>
-
-            <div id="pokemon-container" class="pokemon-grid">
-
-                <p class="loading">
-                    Carregando Pokédex...
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
+        </div>
 
 
-    <footer>
-        <p>Pokémon World © 2026</p>
-        <p>Projeto criado para fins educacionais.</p>
-    </footer>
+        <div class="pokedex-controls">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Pesquisar Pokémon..."
+            >
+
+            <select id="generation-filter">
+
+                <option value="all">
+                    Todas as gerações
+                </option>
+
+                <option value="1">
+                    Geração 1
+                </option>
+
+                <option value="2">
+                    Geração 2
+                </option>
+
+                <option value="3">
+                    Geração 3
+                </option>
+
+                <option value="4">
+                    Geração 4
+                </option>
+
+                <option value="5">
+                    Geração 5
+                </option>
+
+                <option value="6">
+                    Geração 6
+                </option>
+
+                <option value="7">
+                    Geração 7
+                </option>
+
+                <option value="8">
+                    Geração 8
+                </option>
+
+                <option value="9">
+                    Geração 9
+                </option>
+
+            </select>
+
+        </div>
 
 
-    <script src="script.js"></script>
+        <div class="pokedex-info">
+            <span id="pokemon-count">
+                Carregando Pokémon...
+            </span>
+        </div>
+
+
+        <div id="pokemon-container" class="pokemon-grid">
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Pokémon World — Projeto criado para fins educacionais.
+    </p>
+
+    <p>
+        Dados da Pokédex fornecidos pela PokéAPI.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>

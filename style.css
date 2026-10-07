@@ -1,0 +1,753 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: #e3350d;
+    color: white;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ffcb05;
+    text-shadow:
+        2px 2px 0 #2a75bb,
+        -1px -1px 0 #2a75bb,
+        1px -1px 0 #2a75bb,
+        -1px 1px 0 #2a75bb;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ffcb05;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 100px;
+
+    padding: 60px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e3350d,
+            #cc0000
+        );
+
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.main-button,
+.secondary-button {
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.main-button {
+    background: #ffcb05;
+    color: #222;
+}
+
+.secondary-button {
+    background: white;
+    color: #e3350d;
+}
+
+.main-button:hover,
+.secondary-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   POKEBALL
+========================= */
+
+.pokeball-decoration {
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #e3350d 0%,
+            #e3350d 47%,
+            #222 47%,
+            #222 53%,
+            white 53%,
+            white 100%
+        );
+
+    border: 10px solid white;
+
+    position: relative;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pokeball-center {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    background: white;
+
+    border: 10px solid #222;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.section {
+    min-height: 600px;
+
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+
+    color: #e3350d;
+
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-card {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+}
+
+.quiz-card h3 {
+    font-size: 27px;
+
+    margin-bottom: 20px;
+}
+
+.quiz-card p {
+    line-height: 1.6;
+
+    color: #555;
+
+    margin-bottom: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Topo do quiz */
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+}
+
+
+/* Barra de progresso */
+
+.progress-container {
+    width: 100%;
+
+    height: 10px;
+
+    background: #ddd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 30px;
+}
+
+#progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    background: #e3350d;
+
+    transition: width 0.3s;
+}
+
+
+/* Pergunta */
+
+#question {
+    font-size: 25px;
+
+    line-height: 1.4;
+
+    margin-bottom: 30px;
+}
+
+
+/* Respostas */
+
+.answers {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.answer-button {
+    padding: 18px;
+
+    border: 2px solid #ddd;
+
+    border-radius: 10px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.answer-button:hover {
+    border-color: #2a75bb;
+
+    background: #f1f7ff;
+}
+
+.answer-button.correct {
+    background: #4caf50;
+
+    border-color: #4caf50;
+
+    color: white;
+}
+
+.answer-button.wrong {
+    background: #e3350d;
+
+    border-color: #e3350d;
+
+    color: white;
+}
+
+
+/* Botões */
+
+.quiz-button {
+    margin-top: 25px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #e3350d;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.quiz-button:hover {
+    background: #c6280b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   POKEDEX
+========================= */
+
+.pokedex-section {
+    background: #eeeeee;
+}
+
+.pokedex-controls {
+    max-width: 1000px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+.pokedex-controls input,
+.pokedex-controls select {
+    padding: 14px;
+
+    border: 2px solid #ddd;
+
+    border-radius: 10px;
+
+    background: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.pokedex-controls input {
+    flex: 1;
+}
+
+.pokedex-controls input:focus,
+.pokedex-controls select:focus {
+    border-color: #2a75bb;
+}
+
+.pokedex-info {
+    max-width: 1000px;
+
+    margin: 0 auto 25px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+
+/* Grid */
+
+.pokemon-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(180px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+/* Card */
+
+.pokemon-card {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.25s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pokemon-card img {
+    width: 140px;
+    height: 140px;
+
+    object-fit: contain;
+
+    margin-bottom: 10px;
+}
+
+.pokemon-number {
+    color: #777;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.pokemon-name {
+    font-size: 21px;
+
+    font-weight: bold;
+
+    text-transform: capitalize;
+
+    margin-bottom: 10px;
+}
+
+
+/* Tipos */
+
+.types {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+}
+
+.type {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+
+/* Cores dos tipos */
+
+.type-normal {
+    background: #a8a77a;
+}
+
+.type-fire {
+    background: #ee8130;
+}
+
+.type-water {
+    background: #6390f0;
+}
+
+.type-electric {
+    background: #f7d02c;
+    color: #222;
+}
+
+.type-grass {
+    background: #7ac74c;
+}
+
+.type-ice {
+    background: #96d9d6;
+    color: #222;
+}
+
+.type-fighting {
+    background: #c22e28;
+}
+
+.type-poison {
+    background: #a33ea1;
+}
+
+.type-ground {
+    background: #e2bf65;
+    color: #222;
+}
+
+.type-flying {
+    background: #a98ff3;
+}
+
+.type-psychic {
+    background: #f95587;
+}
+
+.type-bug {
+    background: #a6b91a;
+}
+
+.type-rock {
+    background: #b6a136;
+}
+
+.type-ghost {
+    background: #735797;
+}
+
+.type-dragon {
+    background: #6f35fc;
+}
+
+.type-dark {
+    background: #705746;
+}
+
+.type-steel {
+    background: #b7b7ce;
+    color: #222;
+}
+
+.type-fairy {
+    background: #d685ad;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+
+    background: #222;
+
+    color: #aaa;
+
+    text-align: center;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .pokeball-decoration {
+        width: 200px;
+        height: 200px;
+    }
+
+    .pokeball-center {
+        width: 60px;
+        height: 60px;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .pokedex-controls {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    header {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .quiz-card {
+        padding: 25px 18px;
+    }
+
+    #question {
+        font-size: 21px;
+    }
+
+    .pokemon-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+    .pokemon-card {
+        padding: 12px;
+    }
+
+    .pokemon-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
